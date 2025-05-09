@@ -62,6 +62,7 @@
         const image = document.getElementById("image");
         let scaleNo = 0.8;
         let scaleYes = 1.2;
+        const originalSizeYes = 1.2;
 
         noButton.addEventListener("click", () => {
             scaleNo *= 0.8;
@@ -76,6 +77,8 @@
         });
 
         yesButton.addEventListener("click", () => {
+            scaleYes = originalSizeYes;
+            yesButton.style.transform = `scale(${scaleYes})`;
             image.src = "./pict33.jpg";
             message.textContent = "yuuuupe THAT'S MY GIRL , I KNOW THAT YOU LOVE ME 💖";
         });
