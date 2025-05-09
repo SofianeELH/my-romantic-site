@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Romantic Interaction</title>
+    <style>
+        body {
+            background-color: #ff4d4d;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #question {
+            font-size: 28px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yesButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #noButton {
+            background-color: #f44336;
+            color: white;
+        }
+        #image {
+            margin-top: 20px;
+            width: 200px;
+            height: auto;
+        }
+        #message {
+            margin-top: 10px;
+            font-size: 24px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="question">Wach tkhrej m3aya??</div><br>
+    <button id="yesButton">Yes of course</button>
+    <button id="noButton">No pr I don't</button>
+    <br>
+    <img id="image" src="./pict1.jpg" alt="serby voty">
+    <div id="message"></div>
+
+    <script>
+        const yesButton = document.getElementById("yesButton");
+        const noButton = document.getElementById("noButton");
+        const message = document.getElementById("message");
+        const image = document.getElementById("image");
+        let scaleNo = 0.8;
+        let scaleYes = 1.2;
+
+        noButton.addEventListener("click", () => {
+            scaleNo *= 0.8;
+            scaleYes *= 1.2;
+            noButton.style.transform = `scale(${scaleNo})`;
+            yesButton.style.transform = `scale(${scaleYes})`;
+            image.src = "./pict22.jpg";
+
+            if (scaleYes >= 20) {
+                message.textContent = "yuuuupe THAT'S MY GIRL , I KNOW THAT YOU LOVE ME 💖";
+            }
+        });
+
+        yesButton.addEventListener("click", () => {
+            image.src = "./pict33.jpg";
+            message.textContent = "yuuuupe THAT'S MY GIRL , I KNOW THAT YOU LOVE ME 💖";
+        });
+    </script>
+</body>
+</html>
