@@ -63,8 +63,13 @@
         let scaleNo = 0.8;
         let scaleYes = 1.2;
         const originalSizeYes = 1.2;
+        let firstClick = null; 
 
         noButton.addEventListener("click", () => {
+            if (!firstClick) {
+            firstClick = "no";
+            console.log("First click was: NO");
+        }
             scaleNo *= 0.8;
             scaleYes *= 1.2;
             noButton.style.transform = `scale(${scaleNo})`;
@@ -78,6 +83,11 @@
         });
 
         yesButton.addEventListener("click", () => {
+            if (!firstClick) {
+            firstClick = "yes";
+            console.log("First click was: YES");
+        }
+            
             scaleYes = originalSizeYes;
             yesButton.style.transform = `scale(${scaleYes})`;
             image.src = "./pict33.jpg";
