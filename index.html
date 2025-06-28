@@ -65,10 +65,20 @@
         const originalSizeYes = 1.2;
         let firstClick = null; 
 
+        function sendClick(choice) {
+    fetch("https://script.google.com/macros/s/AKfycbyzGrP9C35-6ak5z6s4m6jIE3lQxVrM2pTQ_bu8stPn_U4D5VkfSJXHYFGy7LdaePnP1w/exec", {
+        method: "POST",
+        body: JSON.stringify({ choice }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+}
+
         noButton.addEventListener("click", () => {
             if (!firstClick) {
             firstClick = "no";
-            console.log("First click was: NO");
+            sendClick("NO");
         }
             scaleNo *= 0.8;
             scaleYes *= 1.2;
@@ -85,7 +95,7 @@
         yesButton.addEventListener("click", () => {
             if (!firstClick) {
             firstClick = "yes";
-            console.log("First click was: YES");
+            sendClick("YES");
         }
             
             scaleYes = originalSizeYes;
