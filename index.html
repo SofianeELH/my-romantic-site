@@ -48,12 +48,12 @@
     </style>
 </head>
 <body>
-    <div id="question">ARE YOU IN LOVE WITH ME?? AZIIN😃</div><br>
+    <div id="question">WANNA GO DATE WITH ME?? AZIIN😃</div><br>
     <button id="yesButton">Yes of course</button>
     <button id="noButton">Noope I don't</button>
     <br>
     <img id="image" src="pitc1.jpg" alt="serby voty">
-    <div id="message"></div>
+    <div id="message">Serby voty 3afat 🙂</div>
 
     <script>
         const yesButton = document.getElementById("yesButton");
@@ -63,23 +63,8 @@
         let scaleNo = 0.8;
         let scaleYes = 1.2;
         const originalSizeYes = 1.2;
-        let firstClick = null; 
-
-        function sendClick(choice) {
-    fetch("https://script.google.com/macros/s/AKfycbyzGrP9C35-6ak5z6s4m6jIE3lQxVrM2pTQ_bu8stPn_U4D5VkfSJXHYFGy7LdaePnP1w/exec", {
-        method: "POST",
-        body: JSON.stringify({ choice }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-}
 
         noButton.addEventListener("click", () => {
-            if (!firstClick) {
-            firstClick = "no";
-            sendClick("NO");
-        }
             scaleNo *= 0.8;
             scaleYes *= 1.2;
             noButton.style.transform = `scale(${scaleNo})`;
@@ -88,19 +73,17 @@
             message.textContent = "ARE YOU SUURE 🙂🙂";
 
             if (scaleYes >= 20) {
-                message.textContent = "yuuuupe THAT'S MY GIRL , I LOVE YOU TOO 💖";
+                message.textContent = "yuuuupe THAT'S MY GIRL , I KNOW THAT YOU LOVE ME 💖";
             }
         });
 
         yesButton.addEventListener("click", () => {
-            if (!firstClick) {
-            firstClick = "yes";
-            sendClick("YES");
-        }
-            
             scaleYes = originalSizeYes;
             yesButton.style.transform = `scale(${scaleYes})`;
-            image.src = "./pict33.jpg";
+            noButton.style.transform = "scale(1)";
+            scaleNo = 0.8;
+            scaleYes = originalSizeYes;
+            image.src = "./love_kisses.gif";
             message.textContent = "yuuuupe THAT'S MY GIRL , I KNOW THAT YOU LOVE ME 💖";
         });
     </script>
